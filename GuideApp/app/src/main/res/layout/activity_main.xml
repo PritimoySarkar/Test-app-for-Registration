@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="259dp"
+            android:layout_height="201dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="30dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/sign_up" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tiName"
+        android:layout_below="@+id/img">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etName"
+            android:hint="@string/txt_Name"
+            android:inputType="textPersonName"
+            android:drawableLeft="@drawable/person_name_logo"
+            android:drawableTint="@color/colorPrimaryDark"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtPhone" anything else?
+        android:text="@string/txt_contact"
+        android:layout_below="@id/tiName"/>ami
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etContact"
+        android:layout_below="@+id/txtPhone"/>
+        No...omam tar beng. voice ta <3 <3
+    -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tiContact"
+        android:layout_below="@+id/tiName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etContact"
+            android:hint="@string/txt_contact"
+            android:inputType="phone"
+            android:drawableLeft="@drawable/call_logo"
+            android:drawableTint="@color/colorAccent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tiEmail"
+        android:layout_below="@+id/tiContact">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etEmail"
+            android:hint="@string/txt_email"
+            android:inputType="textEmailAddress"
+            android:drawableLeft="@drawable/email_logo"
+            android:drawableTint="@color/colorAccent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tiPassword"
+        android:layout_below="@+id/tiEmail"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etPassword"
+            android:hint="@string/txt_pass"
+            android:inputType="textPassword"
+            android:drawableStart="@drawable/lock_logo2"
+            android:drawableTint="@color/colorAccent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tiConfPassword"
+        android:layout_below="@+id/tiPassword"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etConfPassword"
+            android:hint="confirm Password"
+            android:inputType="textPassword"
+            android:drawableStart="@drawable/lock_logo2"
+            android:drawableTint="@color/colorPrimaryDark"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="153dp"
+            android:layout_height="44dp"
+            android:layout_below="@id/tiConfPassword"
+            android:layout_alignEnd="@+id/tiConfPassword"
+            android:layout_alignParentStart="true"
+            android:layout_marginVertical="30dp"
+            android:layout_marginStart="164dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="34dp"
+            android:background="@drawable/btn_shape"
+            android:text="Sign Up"
+            android:textSize="25sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnSignUp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/click_login"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    </ScrollView>
+

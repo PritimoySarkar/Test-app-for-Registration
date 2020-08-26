@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Guide App</string>
+    <string name="txt_Name">Enter your Name</string>
+    <string name="txt_contact">Enter Phone Number</string>
+    <string name="txt_email">Enter your email</string>
+    <string name="txt_pass">Create Password</string>
+    <string name="click_login">Already have account?<u>Click Here</u></string>
+</resources>
