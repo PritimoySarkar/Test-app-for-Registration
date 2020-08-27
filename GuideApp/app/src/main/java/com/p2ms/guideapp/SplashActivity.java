@@ -9,8 +9,8 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.util.Log;
 
-import com.p2ms.guideapp.keys.StaticData;
-import com.p2ms.guideapp.session.LocalSessionStore;
+import com.p2ms.guideapp.keys.*;
+import com.p2ms.guideapp.session.*;
 
 import java.util.concurrent.Delayed;
 
@@ -44,7 +44,7 @@ public class SplashActivity extends AppCompatActivity {
                                     Log.d("Splash Activity", "getting into else part to return to Home Activity");
                                     startActivity(
                                             new Intent(SplashActivity.this,
-                                                    HomeActivity.class
+                                                    WelcomeBottomActivity.class
                                             )
                                     );
                                 }

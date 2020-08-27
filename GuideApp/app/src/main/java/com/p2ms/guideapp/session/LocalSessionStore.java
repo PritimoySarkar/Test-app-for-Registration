@@ -27,4 +27,6 @@ public class LocalSessionStore {
         //spEditor.remove("key"); //to remove particular data
         spEditor.commit();
     }
+
+
 }

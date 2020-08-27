@@ -16,8 +16,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.p2ms.guideapp.keys.StaticData;
-import com.p2ms.guideapp.session.LocalSessionStore;
+import com.p2ms.guideapp.keys.*;
+import com.p2ms.guideapp.session.*;
 
 public class SignInActivity extends AppCompatActivity {
     private TextInputEditText etEmail,etPass;
@@ -72,7 +72,7 @@ public class SignInActivity extends AppCompatActivity {
                                             local.storeData(StaticData.USER_ID,fUser.getUid());
                                             startActivity(new Intent(
                                                     SignInActivity.this, //source
-                                                    HomeActivity.class                  //Destination
+                                                    WelcomeBottomActivity.class                  //Destination
                                             ));
                                             SignInActivity.this.finish(); //Destroying sign in Activity
                                         }

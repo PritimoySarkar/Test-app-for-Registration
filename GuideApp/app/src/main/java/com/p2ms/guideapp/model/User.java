@@ -11,6 +11,13 @@ public class User {
         this.userPass = userPass;
     }
 
+    public User(String userName, String userEmail, String userContact, String userDp) {
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userContact = userContact;
+        this.userDp = userDp;
+    }
+
     public String getUserId() {
         return userId;
     }

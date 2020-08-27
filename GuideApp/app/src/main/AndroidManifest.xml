@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/meme_ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity"></activity>
+        <activity
+            android:name=".WelcomeBottomActivity"
+            android:label="@string/title_activity_welcome_bottom"></activity>
+        <activity android:name=".HomeActivity" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
@@ -20,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignInActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

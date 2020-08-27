@@ -21,8 +21,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.p2ms.guideapp.keys.StaticData;
-import com.p2ms.guideapp.model.User;
+import com.p2ms.guideapp.keys.*;
+import com.p2ms.guideapp.model.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
         newUser.put(StaticData.USER_EMAIL,user.getUserEmail());
         newUser.put(StaticData.USER_CONTACT,user.getUserContact());
         newUser.put(StaticData.USER_PASS,user.getUserPass());
+        newUser.put(StaticData.USER_DP,"");
         db.collection("Users")
                 .document(user.getUserId())
                 .set(newUser)
