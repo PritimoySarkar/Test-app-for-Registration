@@ -1,7 +1,11 @@
 package com.p2ms.guideapp.ui.profile;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,9 +37,12 @@ import com.p2ms.guideapp.keys.*;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.p2ms.guideapp.R;
 
+import java.io.IOException;
 import java.util.Map;
 
-public class ProfileFragment extends Fragment {
+import static android.app.Activity.RESULT_OK;
+
+public class ProfileFragment extends Fragment implements ModalBottomScreen.BottomListener{
     ProgressDialog progressDialog;
     CircularImageView iv;
     TextInputEditText edName,edEmail,edContact;
@@ -63,6 +70,15 @@ public class ProfileFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         String currentUserId = new LocalSessionStore(getContext()).getData(StaticData.USER_ID);
         showData(currentUserId);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnSave.setVisibility(View.VISIBLE);
+                ModalBottomScreen modal = new ModalBottomScreen();
+                modal.show(getParentFragmentManager().beginTransaction(),"Choose One Option"); //make the modal visible (fragmnt mngr,msg)
+            }
+        });
         return root;
     }
 
@@ -108,4 +124,53 @@ public class ProfileFragment extends Fragment {
         });
 
     }
+
+    @Override
+    public void onButtonClick(int text) {
+        if(text==R.string.choose_gallery){
+            //code to open gallery
+            Intent in =new Intent();
+            in.setType("*/*");
+            in.setAction(Intent.ACTION_GET_CONTENT); //specifying action
+            //after getting into gallery, choose an image + return the specefic file
+            startActivityForResult(Intent.createChooser(in,"select image"),200);
+        }else{
+            //write code to open Camera
+            Intent camIn = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(camIn,2020);
+        }
+
+    }
+
+    //access selected file
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==2020 && resultCode==RESULT_OK){
+            //getting result from camera
+            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+            iv.setImageBitmap(bitmap);
+        }
+        else{
+            //getting result from gallery
+            if(data != null && data.getData() != null){
+                Uri path = data.getData(); //store image path
+                try{
+                    iv.setImageBitmap((MediaStore.Images.Media.getBitmap(
+                            getContext().getContentResolver(),path
+                    )));
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }
+/**
+Listing the data
+ * ListView
+ * GridView
+ * Recycler VIew
+ *       Container (Can adapt any design [list or grid]) [more organised]
+ **/

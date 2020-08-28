@@ -9,4 +9,6 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="choose_camera">Choose to Open Camera</string>
+    <string name="choose_gallery">Choose to select from Gallery</string>
 </resources>
